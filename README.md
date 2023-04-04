@@ -1,3 +1,18 @@
+# Nhóm 06 - IT4536
+
+
+
+## Thành viên trong nhóm :
+### Subteam 1
+* ###### Trần Xuân Đồng 20194020
+* ###### Nguyễn Việt Tùng 20194208
+### Subteam 2
+* ###### Chu Mạnh Tiến 20194182
+* ###### Nguyễn Văn Biển 20193993
+
+
+
+
 #  An Internet Media Store
 <p align="center">
   <img src="src/main/resources/assets/images/aims_cover_image.png" />
