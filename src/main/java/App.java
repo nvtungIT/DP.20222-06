@@ -26,6 +26,13 @@ public class App extends Application {
 		try {
 
 			// initialize the scene
+
+			/*
+				Common coupling
+				Giữa class: App và ViewsConfig
+				Vì: sử dụng biến global INTRO_SCREEN_PATH của lớp ViewsConfig
+			 */
+
 			BaseScreenHandler introScreen = new IntroScreenHandler(primaryStage, ViewsConfig.INTRO_SCREEN_PATH);
 			introScreen.show();
 
@@ -50,6 +57,12 @@ public class App extends Application {
 			// After fade out, load actual content
 			fadeOut.setOnFinished((e) -> {
 				try {
+
+					/**
+					 * Common coupling:
+					 * Lớp App và ViewsConfig
+					 * Vì: Sử dụng thuộc tính global HOME_PATH của lớp ViewsConfig
+					 */
 					HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, ViewsConfig.HOME_PATH);
 					homeHandler.setScreenTitle("Home Screen");
 					homeHandler.setImage();

@@ -72,6 +72,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 			}
 		});
 	}
+	// Common Coupling: lớp PaymentScreenHandler sử dụng dữ liệu global của lớp ViewsConfig (RESULT_SCREEN_PATH)
 
 	void confirmToPayOrder() throws IOException{
 		String contents = "pay order";

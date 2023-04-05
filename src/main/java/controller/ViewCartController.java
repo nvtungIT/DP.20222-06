@@ -14,6 +14,9 @@ public class ViewCartController extends BaseController{
      * This method checks the available products in Cart
      * @throws SQLException
      */
+
+    // Common coupling: Lớp PaymentController truy xuất trực tiếp dữ liệu (cartInstance) của lớp SessionInformation
+   
     public void checkAvailabilityOfProduct() throws SQLException{
         SessionInformation.cartInstance.checkAvailabilityOfProduct();
     }
@@ -22,6 +25,9 @@ public class ViewCartController extends BaseController{
      * This method calculates the cart subtotal
      * @return subtotal
      */
+
+    // Common coupling: Lớp ViewCartController sử dụng dữ liệu global của lớp SessionInformation (cartInstance)
+
     public int getCartSubtotal(){
         int subtotal = SessionInformation.cartInstance.calSubtotal();
         return subtotal;

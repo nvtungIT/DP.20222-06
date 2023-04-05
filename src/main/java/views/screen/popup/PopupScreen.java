@@ -32,16 +32,19 @@ public class PopupScreen extends BaseScreenHandler {
         popup.setImage(imagePath);
         return popup;
     }
+	// Common Coupling: Lớp HomeScreenHandler, PopupScreenHandler, CartScreenHandler sử dụng chung biến global của lớp Viewsconfig (IMAGE_PATH)
 
     public static void success(String message) throws IOException{
         popup(message, ViewsConfig.IMAGE_PATH + "/" + "tickgreen.png", true)
                 .show(true);
     }
+    // Common Coupling: Lớp HomeScreenHandler, PopupScreenHandler, CartScreenHandler sử dụng chung biến global của lớp Viewsconfig (IMAGE_PATH)
 
     public static void error(String message) throws IOException{
         popup(message, ViewsConfig.IMAGE_PATH + "/" + "tickerror.png", false)
                 .show(false);
     }
+	// Common Coupling: Lớp HomeScreenHandler, PopupScreenHandler, CartScreenHandler sử dụng chung biến global của lớp Viewsconfig (IMAGE_PATH)
 
     public static PopupScreen loading(String message) throws IOException{
         return popup(message, ViewsConfig.IMAGE_PATH + "/" + "loading.gif", true);

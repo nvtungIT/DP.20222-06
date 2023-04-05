@@ -147,6 +147,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         numMediaInCart.setText(String.valueOf(SessionInformation.cartInstance.getListMedia().size()) + " media");
         super.show();
     }
+    // Common Coupling: Lớp HomeScreenHandler, PopupScreenHandler, CartScreenHandler sử dụng chung biến global của lớp Viewsconfig (IMAGE_PATH)
 
     public void setImage() {
         // fix image path caused by fxml
@@ -250,6 +251,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     }
 
     @FXML
+	// Common Coupling: Lớp HomeScreenHandler sử dụng chung biến global của lớp Viewsconfig (LOGIN_SCREEN_PATH)
+
     void redirectLoginScreen(MouseEvent event) {
         try {
             BaseScreenHandler loginScreen = new LoginScreenHandler(this.stage, ViewsConfig.LOGIN_SCREEN_PATH);

@@ -90,6 +90,8 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 		preprocessDeliveryInfo();
 		
 		// create invoice screen
+		// Common Coupling: Lớp ShippingScreenHandler sử dụng chung biến global của lớp Viewsconfig	 (INVOICE_SCREEN_PATH)
+
 		Invoice invoice = getBController().createInvoice(order);
 		BaseScreenHandler InvoiceScreenHandler = new InvoiceScreenHandler(this.stage, ViewsConfig.INVOICE_SCREEN_PATH, invoice);
 		InvoiceScreenHandler.setPreviousScreen(this);

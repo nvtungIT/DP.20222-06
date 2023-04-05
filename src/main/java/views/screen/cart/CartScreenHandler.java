@@ -65,6 +65,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 			PopupScreen.error(ex.getMessage());
 		}
 	}
+    // Common Coupling: Lớp HomeScreenHandler, PopupScreenHandler, CartScreenHandler sử dụng chung biến global của lớp Viewsconfig (IMAGE_PATH)
 
 	protected void setupFunctionality() throws Exception {
 		// fix relative image path caused by fxml

@@ -17,6 +17,9 @@ public class BaseController {
      * @param media
      * @return CartMedia or null
      */
+
+     // Common coupling: Lớp BaseController sử dụng biến global của lớp SessionInformation (cartInstance)
+
     public CartItem checkMediaInCart(Media media){
         return SessionInformation.cartInstance.checkMediaInCart(media);
     }
@@ -25,6 +28,8 @@ public class BaseController {
      * This method gets the list of items in cart
      * @return List[CartMedia]
      */
+
+    // Common coupling: Lớp BaseController sử dụng biến global của lớp SessionInformation (cartInstance)
     public List getListCartMedia(){
         return SessionInformation.cartInstance.getListMedia();
     }

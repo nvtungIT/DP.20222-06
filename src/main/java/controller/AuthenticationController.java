@@ -29,12 +29,15 @@ public class AuthenticationController extends BaseController {
         }
     }
 
+   //Common coupling: Lớp AuthenticationController Sử dụng biến global của lớp SessionInformation (mainUser, expiredTime)
     public User getMainUser() throws ExpiredSessionException {
         if (SessionInformation.mainUser == null || SessionInformation.expiredTime == null || SessionInformation.expiredTime.isBefore(LocalDateTime.now())) {
             logout();
             throw new ExpiredSessionException();
         } else return SessionInformation.mainUser.cloneInformation();
     }
+
+    //Common coupling: Lớp AuthenticationController Sử dụng biến global của lớp SessionInformation (mainUser, expiredTime)
 
     public void login(String email, String password) throws Exception {
         try {
@@ -46,6 +49,9 @@ public class AuthenticationController extends BaseController {
             throw new FailLoginException();
         }
     }
+
+    
+    //Common coupling: Lớp AuthenticationController Sử dụng biến global của lớp SessionInformation (mainUser, expiredTime)
 
     public void logout() {
         SessionInformation.mainUser = null;
