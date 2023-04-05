@@ -122,7 +122,10 @@ public class CartScreenHandler extends BaseScreenHandler {
 			Order order = placeOrderController.createOrder();
 
 			// display shipping form
+    // Common Coupling: Lớp  CartScreenHandler sử dụng chung biến global của lớp Viewsconfig (SHIPPING_SCREEN_PATH)
+
 			ShippingScreenHandler shippingScreenHandler = new ShippingScreenHandler(
+
 					this.stage, ViewsConfig.SHIPPING_SCREEN_PATH, order);
 			shippingScreenHandler.setPreviousScreen(this);
 			shippingScreenHandler.setHomeScreenHandler(homeScreenHandler);
@@ -144,6 +147,9 @@ public class CartScreenHandler extends BaseScreenHandler {
 	void updateCartAmount(){
 		// calculate subtotal and amount
 		int subtotal = getBController().getCartSubtotal();
+
+        // Common Coupling: Lớp CartScreenHandler sử dụng biến global PERCENT_VAT của lớp ViewsConfig
+
 		int vat = (int)((ViewsConfig.PERCENT_VAT/100)*subtotal);
 		int amount = subtotal + vat;
 		LOGGER.info("amount" + amount);
@@ -166,6 +172,8 @@ public class CartScreenHandler extends BaseScreenHandler {
 
 				// display the attribute of vboxCart media
 				CartItem cartItem = (CartItem) cm;
+		     // Common Coupling: Lớp CartScreenHandler sử dụng biến global CART_MEDIA_PATH của lớp ViewsConfig
+
 				MediaHandler mediaCartScreen = new MediaHandler(ViewsConfig.CART_MEDIA_PATH, this);
 				mediaCartScreen.setCartItem(cartItem);
 

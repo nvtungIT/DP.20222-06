@@ -100,6 +100,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             this.homeItems = new ArrayList<>();
             for (Object object : medium) {
                 Media media = (Media)object;
+	// Common Coupling: lớp HomeScreenHandler sử dụng dữ liệu global của lớp ViewsConfig (HOME_MEDIA_PATH)
+
                 MediaHandler m = new MediaHandler(ViewsConfig.HOME_MEDIA_PATH, media);
                 m.attach(this);
                 this.homeItems.add(m);
@@ -120,6 +122,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             CartScreenHandler cartScreen;
             try {
                 LOGGER.info("User clicked to view cart");
+            	// Common Coupling: lớp HomeScreenHandler sử dụng dữ liệu global của lớp ViewsConfig (CART_SCREEN_PATH)
+
                 cartScreen = new CartScreenHandler(this.stage, ViewsConfig.CART_SCREEN_PATH);
                 cartScreen.setHomeScreenHandler(this);
                 cartScreen.setBController(new ViewCartController());
