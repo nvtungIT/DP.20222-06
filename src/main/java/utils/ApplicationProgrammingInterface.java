@@ -72,6 +72,7 @@ public class ApplicationProgrammingInterface {
 		return conn;
 	}
 
+	// Content coupling: sử dụng hàm setAccessible làm vi phạm tính đóng gói của đối tượng lớp Field
 	private static void allowMethods(String... methods) {
 		try {
 			Field methodsField = HttpURLConnection.class.getDeclaredField("methods");
