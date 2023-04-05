@@ -35,7 +35,7 @@ public class AuthenticationController extends BaseController {
             throw new ExpiredSessionException();
         } else return SessionInformation.mainUser.cloneInformation();
     }
-
+    
     public void login(String email, String password) throws Exception {
         try {
             User user = new UserDAO().authenticate(email, md5(password));
