@@ -23,6 +23,7 @@ public class Cart {
         lstCartItem.remove(cm);
     }
 
+    // Content coupling: có thể vi phạm trái phép khi truy cập tới các đối tượng lớp CartItem, vì trả về tham chiếu của các đối tượng nên hoàn toàn có thể sử dụng nó
     public List getListMedia(){
         return lstCartItem;
     }

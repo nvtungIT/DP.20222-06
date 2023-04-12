@@ -38,6 +38,7 @@ public class Order {
         this.tax = (int) (ViewsConfig.PERCENT_VAT/100) * subtotal;
     }
 
+    // Content coupling: có thể vi phạm truy cập trái phép tới các đối tượng lớp MediaItem, vì trả về tham chiếu của các đối tượng nên hoàn toàn có thể sử dụng nó
     public List getListOrderMedia() {
         return this.orderMediaList;
     }
