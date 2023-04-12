@@ -47,6 +47,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		try {
+			// Stamp coupling: truyền vào invoice nhưng chỉ dùng invoice.order, không dùng invoice.amount
 			setupData(invoice);
 			setupFunctionality();
 		} catch (IOException ex) {

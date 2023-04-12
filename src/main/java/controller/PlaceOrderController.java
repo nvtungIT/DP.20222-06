@@ -81,6 +81,7 @@ public class PlaceOrderController extends BaseController {
    * @throws InterruptedException
    * @throws IOException
    */
+    // Stamp coupling: info có nhiều trường thuộc tính khác không dùng như address, instructions nhưng vẫn truyền cả cấu trúc vào
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         if (validatePhoneNumber(info.get("phone"))
         || validateName(info.get("name"))
