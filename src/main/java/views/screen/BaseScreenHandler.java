@@ -51,6 +51,7 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 		this.stage.setTitle(string);
 	}
 
+	// data coupling với BaseController
 	public void setBController(BaseController bController){
 		this.bController = bController;
 	}

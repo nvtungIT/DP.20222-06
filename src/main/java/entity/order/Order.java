@@ -24,6 +24,7 @@ public class Order {
         this.tax = 0;
     }
 
+    // data coupling với lớp Cart
     public Order(Cart cart) {
         List<OrderItem> orderItems = new ArrayList<>();
         for (Object object : SessionInformation.cartInstance.getListMedia()) {
@@ -51,6 +52,7 @@ public class Order {
         return deliveryInfo;
     }
 
+    // data coupling với class DeliveryInfo
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
         this.shippingFees = deliveryInfo.calculateShippingFee(this);

@@ -52,6 +52,7 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 
 	private Order order;
 
+	// data coupling với Order
 	public ShippingScreenHandler(Stage stage, String screenPath, Order order) throws IOException {
 		super(stage, screenPath);
 		try {

@@ -179,6 +179,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         }
     }
 
+    // data coupling với MenuButton, dùng chung position, text
     private void addMenuItem(int position, String text, MenuButton menuButton){
         MenuItem menuItem = new MenuItem();
         Label label = new Label();
