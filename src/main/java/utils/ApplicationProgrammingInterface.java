@@ -21,7 +21,8 @@ public class ApplicationProgrammingInterface {
 
 	public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
-// Logical coheshion
+//Coincidental coheshion
+
 	public static String get(String url, String token) throws Exception {
 		LOGGER.info("Request URL: " + url + "\n");
 		HttpURLConnection conn = setupConnection(url);
