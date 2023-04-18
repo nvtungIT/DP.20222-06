@@ -8,7 +8,8 @@ import common.exception.MediaNotAvailableException;
 import entity.media.Media;
 
 public class Cart {
-    
+
+// Functional Cohesion
     private List<CartItem> lstCartItem;
 
     public Cart() {
@@ -31,7 +32,7 @@ public class Cart {
     public void emptyCart(){
         lstCartItem.clear();
     }
-
+// Communicational Cohesion
     public int getTotalMedia(){
         int total = 0;
         for (Object obj : lstCartItem) {

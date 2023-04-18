@@ -14,7 +14,7 @@ import java.util.Map;
  * @author
  */
 public class InterbankPayloadConverter {
-
+//Logical coheshion
     /**
      * Convert from native entity into interbank required format
      * @param card
