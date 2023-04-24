@@ -26,7 +26,7 @@ import views.screen.ViewsConfig;
 import views.screen.popup.PopupScreen;
 
 public class MediaHandler extends FXMLScreenHandler implements Observable {
-
+/* Communicational Cohesion do các function cùng sử dụng chung*/
     @FXML
     protected ImageView mediaImage;
 

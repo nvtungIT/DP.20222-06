@@ -70,7 +70,7 @@ public class MediaHandler extends FXMLScreenHandler {
 		this.cartItem = cartItem;
 		setMediaInfo();
 	}
-
+	/* Communicational Cohesion do các function cùng sử dụng chung : cartItem, cartScreen, price*/
 	private void setMediaInfo() {
 		title.setText(cartItem.getMedia().getTitle());
 		price.setText(ViewsConfig.getCurrencyFormat(cartItem.getPrice()));

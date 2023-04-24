@@ -69,7 +69,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     private List homeItems;
     private AuthenticationController authenticationController;
-
+	/* Communicational Cohesion do các function cùng sử dụng chung*/
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
         try {
