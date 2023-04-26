@@ -13,8 +13,8 @@ import java.util.Map;
 /**
  * @author
  */
+// Concidental cohesion: phương thức convertJSONResponse(), getToday() không liên quan gì đến mặt functional của lớp
 public class InterbankPayloadConverter {
-//Logical coheshion
     /**
      * Convert from native entity into interbank required format
      * @param card

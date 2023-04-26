@@ -18,6 +18,7 @@ import java.util.Objects;
 /**
  * @author
  */
+// Communication Cohesion: Các phương thức trong class đều làm việc trên cùng dữ liệu của lớp SessionInformation
 public class AuthenticationController extends BaseController {
 
     public boolean isAnonymousSession() {
@@ -59,6 +60,7 @@ public class AuthenticationController extends BaseController {
      * @param message - plain text as {@link String String}.
      * @return cipher text as {@link String String}.
      */
+    // Coincidental cohesion: Phương thức md5 không liên quan đến nhiệm vụ của lớp Authentication
     private String md5(String message) {
         String digest = null;
         try {

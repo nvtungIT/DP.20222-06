@@ -21,7 +21,7 @@ public class ApplicationProgrammingInterface {
 
 	public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
-//Coincidental coheshion
+    // Coincidental coheshion: các phương thức không hề có sự liên quan gì đến nhau: đặc biệt là allowMethods không liên quan gì đến mục đích của lớp và các phương thức còn lại
 
 	public static String get(String url, String token) throws Exception {
 		LOGGER.info("Request URL: " + url + "\n");

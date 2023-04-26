@@ -32,7 +32,7 @@ public class Cart {
     public void emptyCart(){
         lstCartItem.clear();
     }
-// Communicational Cohesion
+    // Communicational Cohesion: các phương thức đều thực hiện cùng data là lstCartItem
     public int getTotalMedia(){
         int total = 0;
         for (Object obj : lstCartItem) {

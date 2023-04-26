@@ -65,7 +65,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 			PopupScreen.error(ex.getMessage());
 		}
 	}
-//Coincidental coheshion
+// Coincidental coheshion: các phương thức độc lập về logic xử lý, một số không hề liên quan đến nhau
 	protected void setupFunctionality() throws Exception {
 		// fix relative image path caused by fxml
 		File file = new File(ViewsConfig.IMAGE_PATH + "/Logo.png");

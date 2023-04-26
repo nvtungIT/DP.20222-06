@@ -70,7 +70,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     private List homeItems;
     private AuthenticationController authenticationController;
 
-//Coincidental coheshion
+//Coincidental coheshion: một số methods không hề liên quan đến nhau về mặt functional, logic xử lý
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
         try {
