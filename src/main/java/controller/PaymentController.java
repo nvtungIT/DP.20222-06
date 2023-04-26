@@ -102,7 +102,7 @@ public class PaymentController extends BaseController {
 		}
 		return result;
 	}
-
+/* Coincidental cohesion vì function emptyCart không liên quan */
 	public void emptyCart(){
         SessionInformation.cartInstance.emptyCart();
     }

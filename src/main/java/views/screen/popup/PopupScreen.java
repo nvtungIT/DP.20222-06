@@ -24,7 +24,8 @@ public class PopupScreen extends BaseScreenHandler {
     public PopupScreen(Stage stage) throws IOException{
         super(stage, ViewsConfig.POPUP_PATH);
     }
-/* Communicational Cohesion do các function cùng sử dụng chung*/
+/* Communicational Cohesion do các function cùng sử dụng chung message,time
+*/
     private static PopupScreen popup(String message, String imagePath, Boolean undecorated) throws IOException{
         PopupScreen popup = new PopupScreen(new Stage());
         if (undecorated) popup.stage.initStyle(StageStyle.UNDECORATED);

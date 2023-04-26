@@ -14,6 +14,7 @@ public class ViewCartController extends BaseController{
      * This method checks the available products in Cart
      * @throws SQLException
      */
+    /* Coincidental cohesion vì function checkAvailabilityOfProduct không liên quan */
     public void checkAvailabilityOfProduct() throws SQLException{
         SessionInformation.cartInstance.checkAvailabilityOfProduct();
     }
