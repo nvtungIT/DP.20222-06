@@ -35,6 +35,7 @@ import views.screen.ViewsConfig;
 import views.screen.cart.CartScreenHandler;
 import views.screen.popup.PopupScreen;
 
+// Temporal cohesion: các hàm setUpData(), setUpFunctional() cùng thực hiện nhiệm vụ tại thời điểm khởi tạo các màn ScreenHandler ==> tách ra
 
 public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
@@ -70,7 +71,6 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     private List homeItems;
     private AuthenticationController authenticationController;
 
-//Coincidental coheshion: một số methods không hề liên quan đến nhau về mặt functional, logic xử lý
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
         try {

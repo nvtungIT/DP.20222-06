@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
+// Temporal cohesion: các hàm setUpData(), setUpFunctional() cùng thực hiện nhiệm vụ tại thời điểm khởi tạo các màn ScreenHandler ==> tách ra
 public class ShippingScreenHandler extends BaseScreenHandler {
 
 	private static final Logger LOGGER = Utils.getLogger(ShippingScreenHandler.class.getName());

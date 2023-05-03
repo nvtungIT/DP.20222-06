@@ -33,7 +33,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
-
+// Temporal cohesion: các hàm setUpData(), setUpFunctional() cùng thực hiện nhiệm vụ tại thời điểm khởi tạo các màn ScreenHandler ==> tách ra
 public class LoginScreenHandler extends BaseScreenHandler{
 
     public static Logger LOGGER = Utils.getLogger(LoginScreenHandler.class.getName());

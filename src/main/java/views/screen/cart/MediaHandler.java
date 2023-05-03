@@ -25,7 +25,6 @@ import utils.Utils;
 import views.screen.FXMLScreenHandler;
 import views.screen.ViewsConfig;
 
-// Coincidental cohesion: các method trong lớp không liên quan gì đến nhau về mặt functional
 public class MediaHandler extends FXMLScreenHandler {
 
 	private static Logger LOGGER = Utils.getLogger(MediaHandler.class.getName());

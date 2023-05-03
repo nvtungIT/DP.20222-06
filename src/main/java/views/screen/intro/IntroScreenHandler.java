@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.popup.PopupScreen;
-
+// Temporal cohesion: các hàm setUpData(), setUpFunctional() cùng thực hiện nhiệm vụ tại thời điểm khởi tạo các màn ScreenHandler ==> tách ra
 public class IntroScreenHandler extends BaseScreenHandler {
 
     private static final Logger LOGGER = Utils.getLogger(IntroScreenHandler.class.getName());

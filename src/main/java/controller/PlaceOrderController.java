@@ -17,11 +17,11 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+// Procedure cohesion: các methods trên thực hiện theo quy trình xử lý khi đặt hàng
 /**
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
-// Coincidental Cohesion: Lớp chứa các phương thức validate không hề liên quan gì đến nhiệm vụ của lớp
 public class PlaceOrderController extends BaseController {
 
     /**
@@ -83,7 +83,7 @@ public class PlaceOrderController extends BaseController {
    * @throws IOException
    */
 
-  //Logical coheshion: các loại validate không hề liên quan đến nhau về cách xử lý, logic, chức năng, chỉ là cùng loại phương thức validate
+  // Logical cohesion: các loại validate không hề liên quan đến nhau về cách xử lý, logic, chức năng, chỉ là cùng loại phương thức validate
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         if (validatePhoneNumber(info.get("phone"))
         || validateName(info.get("name"))

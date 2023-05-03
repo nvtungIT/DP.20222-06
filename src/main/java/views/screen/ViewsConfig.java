@@ -7,6 +7,7 @@ import javafx.scene.text.FontWeight;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+// Coincidental cohesion: nên tách getCurrencyFormat ra chỗ khác, vì nó không hề liên quan đến các configs màn hình khác
 /**
  * @author
  */

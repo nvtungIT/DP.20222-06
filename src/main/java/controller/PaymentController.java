@@ -13,6 +13,7 @@ import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
 import subsystem.InterbankSubsystem;
 
+// Procedure cohesion: các methods trên thực hiện theo quy trình xử lý khi đặt hàng
 
 /**
  * This {@code PaymentController} class control the flow of the payment process

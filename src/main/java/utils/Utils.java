@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+// Coincidental cohesion: DATE_FORMATTER và Logger không hề liên quan gì đến nhau, nên tách ra
 /**
  * @author nguyenlm Contains helper functions
  */

@@ -12,7 +12,8 @@ import views.screen.ViewsConfig;
 
 import java.io.IOException;
 
-
+// logical cohesion: các methods không hề có sự liên quan đến nhau về logic xử lý, chúng chỉ cùng mục đích là hiển thị thông tin lên 1 pop up nào đó
+// => giải pháp: tách ra các lớp tương ứng: một lớp cha, các lớp con kế thừa (từng loại Pop up riêng - đa hình)
 public class PopupScreen extends BaseScreenHandler {
 
     @FXML
