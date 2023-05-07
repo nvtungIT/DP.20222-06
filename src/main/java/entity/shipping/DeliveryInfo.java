@@ -21,6 +21,7 @@ public class DeliveryInfo {
         this.distanceCalculator = distanceCalculator;
     }
 
+    // vi phạm OCP: hiện tại chỉ tính phí ship theo khoảng cách, sau này nếu thêm hình thức tính phí ship theo cân nặng thì phải sửa đổi trực tiếp mã nguồn
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
         return (int) (distance * 1.2);

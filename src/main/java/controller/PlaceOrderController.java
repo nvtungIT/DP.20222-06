@@ -60,6 +60,7 @@ public class PlaceOrderController extends BaseController {
      * @throws InterruptedException
      * @throws IOException
      */
+    // vi phạm OCP: nếu sau này thông tin DeliveryInfo thay đổi thì phải thay đổi trực tiếp mã nguồn
     public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         LOGGER.info("Process Delivery Info");
         LOGGER.info(info.toString());
@@ -81,6 +82,7 @@ public class PlaceOrderController extends BaseController {
    * @throws InterruptedException
    * @throws IOException
    */
+    // vi phạm OCP: nếu sau này thông tin có thêm nhiều trường hơn cần validate thì phải thay đổi trực tiếp mã nguồn
     public void validateDeliveryInfo(HashMap<String, String> info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         if (validatePhoneNumber(info.get("phone"))
         || validateName(info.get("name"))
