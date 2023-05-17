@@ -21,6 +21,8 @@ public class DeliveryInfo {
         this.distanceCalculator = distanceCalculator;
     }
 
+    // vi phạm OCP: hiện tại chỉ tính phí ship theo khoảng cách, sau này nếu thêm hình thức tính phí ship theo cân nặng thì phải sửa đổi trực tiếp mã nguồn
+    // vi phạm DIP: phụ thuộc trực tiếp vào lớp concrete CalculateDistance. Sau này có thêm hình thức ship khác, cách tính phí vận chuyển khác thì cần phải thay đổi
     public int calculateShippingFee(Order order) {
         int distance = distanceCalculator.calculateDistance(address, province);
         return (int) (distance * 1.2);

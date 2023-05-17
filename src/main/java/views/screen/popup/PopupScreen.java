@@ -12,7 +12,9 @@ import views.screen.ViewsConfig;
 
 import java.io.IOException;
 
-
+// ?? Vi phạm SRP:
+// Vi phạm OCP: trong tương lai có thể có thêm nhiều loại Pop up nữa (VD: Warning), nên phải thay đổi mã nguồn trực tiếp (vi phạm close for modify)
+// => Giải pháp: một lớp cha (interface) Popup, các lớp con kế thừa và override method của cha
 public class PopupScreen extends BaseScreenHandler {
 
     @FXML
