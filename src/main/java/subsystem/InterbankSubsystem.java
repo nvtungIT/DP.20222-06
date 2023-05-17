@@ -31,6 +31,7 @@ public class InterbankSubsystem implements InterbankInterface {
 	 *      String)
 	 */
 	// Vi phạm OCP: Phương thức payOrder chỉ dành cho Credit Card, sau này có thêm các hình thức thanh toán khác nữa thì phải thay đổi trực tiếp mã nguồn
+	// Vi phạm DIP: phụ thuộc trực tiếp concrete class CreditCard
 	public PaymentTransaction payOrder(CreditCard card, int amount, String contents) {
 		PaymentTransaction transaction = ctrl.payOrder(card, amount, contents);
 		return transaction;
