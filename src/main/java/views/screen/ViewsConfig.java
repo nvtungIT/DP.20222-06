@@ -10,6 +10,8 @@ import java.util.Locale;
 /**
  * @author
  */
+
+// SRP: 
 public class ViewsConfig {
 
     // static resource
