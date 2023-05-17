@@ -12,7 +12,8 @@ import views.screen.ViewsConfig;
 
 import java.io.IOException;
 
-
+// Vi phạm LSP: Do lớp PopupScreen kế thừa BaseScreenHandler không thể sử dụng các phương thức như getPreviousScreen(), getBController()...
+// Vi phạm OCP: Sau này muốn mở rộng thêm các Popup mới như warning => phải sửa trực tiếp mã nguồn => vi phạm (giải pháp: tách 1 lớp cha hoặc interface, các lớp con popup riêng kế thừa)
 public class PopupScreen extends BaseScreenHandler {
 
     @FXML

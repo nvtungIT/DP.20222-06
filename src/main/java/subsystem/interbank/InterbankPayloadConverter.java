@@ -69,6 +69,7 @@ public class InterbankPayloadConverter {
                 Integer.parseInt((String) transaction.get("amount")),
                 (String) transaction.get("createdAt"));
 
+        // Vi phạm OCP: Sau này mở rộng thêm một kiểu lỗi nữa thì phải thay đổi trực tiếp mã nguồn 
         switch (trans.getErrorCode()) {
             case "00":
                 break;

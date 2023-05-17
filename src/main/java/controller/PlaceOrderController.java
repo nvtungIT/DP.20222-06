@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
  * @author nguyenlm
  */
 // SRP: Validate dữ liệu vừa xử lý dữ liệu đặt hàng => có nhiều hơn 1 lý do để thay đổi
+// SRP?? : Validate các loại
 public class PlaceOrderController extends BaseController {
 
     /**
