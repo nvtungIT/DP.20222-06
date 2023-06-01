@@ -14,6 +14,8 @@ import utils.Utils;
 import views.screen.home.HomeScreenHandler;
 import views.screen.popup.PopupScreen;
 
+
+//Template method: tạo pthuc setupData và setupFuntionality
 public abstract class BaseScreenHandler extends FXMLScreenHandler {
 
 	private static final Logger LOGGER = Utils.getLogger(BaseScreenHandler.class.getName());
@@ -30,6 +32,18 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 		super(screenPath);
 		this.stage = stage;
 	}
+
+	// public void setUp() {
+	// 	setupData();
+	// 	setupFuntionality();
+	// }
+
+	// protected void setupData(Object dto) throws Exception  {
+
+	// }
+	// protected void setupFuntionality() throws Exception{
+
+	// }
 
 	public void setPreviousScreen(BaseScreenHandler prev) {
 		this.prev = prev;

@@ -47,6 +47,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		try {
+			// setUp();
 			setupData(invoice);
 			setupFunctionality();
 		} catch (IOException ex) {
@@ -58,10 +59,11 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 		}
 	}
 
+	// @override
 	protected void setupData(Object dto) throws Exception {
 		this.invoice = (Invoice) dto;
 	}
-
+	// @override
 	protected void setupFunctionality() throws Exception {
 		btnConfirmPayment.setOnMouseClicked(e -> {
 			try {
