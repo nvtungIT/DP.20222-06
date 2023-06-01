@@ -33,17 +33,12 @@ public abstract class BaseScreenHandler extends FXMLScreenHandler {
 		this.stage = stage;
 	}
 
-	// public void setUp() {
-	// 	setupData();
-	// 	setupFuntionality();
-	// }
-
-	// protected void setupData(Object dto) throws Exception  {
-
-	// }
-	// protected void setupFuntionality() throws Exception{
-
-	// }
+	protected void setupData(Object dto) throws Exception  {
+		return;
+	}
+	protected void setupFuntionality() throws Exception{
+		return;
+	}
 
 	public void setPreviousScreen(BaseScreenHandler prev) {
 		this.prev = prev;

@@ -47,7 +47,6 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	public PaymentScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		try {
-			// setUp();
 			setupData(invoice);
 			setupFunctionality();
 		} catch (IOException ex) {
