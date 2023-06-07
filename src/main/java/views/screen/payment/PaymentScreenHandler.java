@@ -1,6 +1,6 @@
 package views.screen.payment;
 
-import controller.PaymentController;
+import controller.CreditCardController;
 import entity.invoice.Invoice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -58,11 +58,11 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 		}
 	}
 
-	// @override
+	@Override
 	protected void setupData(Object dto) throws Exception {
 		this.invoice = (Invoice) dto;
 	}
-	// @override
+	@Override
 	protected void setupFunctionality() throws Exception {
 		btnConfirmPayment.setOnMouseClicked(e -> {
 			try {
@@ -76,7 +76,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 
 	void confirmToPayOrder() throws IOException{
 		String contents = "pay order";
-		PaymentController ctrl = (PaymentController) getBController();
+		CreditCardController ctrl = (CreditCardController) getBController();
 		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
 				expirationDate.getText(), securityCode.getText());
 
