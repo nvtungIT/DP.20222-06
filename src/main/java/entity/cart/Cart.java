@@ -7,11 +7,13 @@ import java.util.List;
 import common.exception.MediaNotAvailableException;
 import entity.media.Media;
 
+// singleton: Cả dự án chỉ cần một instance cart là đủ, vậy nên sẽ sửa lại lớp Cart là singleton class, các lớp liên quan cần cập nhật thì phải cập nhật lại (ví dụ SessionInformation)
 public class Cart {
     
     private List<CartItem> lstCartItem;
+    private static Cart cart = new Cart();
 
-    public Cart() {
+    private Cart() {
         lstCartItem = new ArrayList<>();
     }
 
@@ -65,6 +67,10 @@ public class Cart {
             if (cartItem.getMedia().getId() == media.getId()) return cartItem;
         }
         return null;
+    }
+
+    private static Cart getInstance() {
+        return this.cart;
     }
 
 }
