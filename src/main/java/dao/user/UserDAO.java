@@ -19,13 +19,20 @@ public class UserDAO {
                 "where email = '" + email + "' and encrypted_password = '" + encryptedPassword + "'";
         ResultSet res =  AIMSDB.getConnection().createStatement().executeQuery(sql);
         if(res.next()) {
-            return new User(
-                    res.getInt("id"),
-                    res.getString("name"),
-                    res.getString("email"),
-                    res.getString("address"),
-                    res.getString("phone")
-            );
+            // return new User(
+            //         res.getInt("id"),
+            //         res.getString("name"),
+            //         res.getString("email"),
+            //         res.getString("address"),
+            //         res.getString("phone")
+            // );
+            User user = User.getInstance();
+            user.setId(res.getInt("id"));
+            user.setName(res.getString("name"));
+            user.setAddress(res.getString("address"));
+            user.setEmail(res.getString("email"));
+            user.setPhone(res.getString("phone"));
+            return user;
         } else {
             throw new SQLException();
         }
