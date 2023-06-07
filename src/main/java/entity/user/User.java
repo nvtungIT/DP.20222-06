@@ -22,7 +22,7 @@ public class User {
         return this.user
     }
     
-    // override toString method
+    // Override toString method
     @Override
     public String toString() {
         return "{" +

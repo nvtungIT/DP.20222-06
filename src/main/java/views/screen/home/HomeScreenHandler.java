@@ -92,6 +92,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         return (HomeController) super.getBController();
     }
 
+    @Override
     protected void setupData(Object dto) throws Exception {
         setBController(new HomeController());
         this.authenticationController = new AuthenticationController();
@@ -109,7 +110,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
             e.printStackTrace();
         }
     }
-
+    @Override
     protected void setupFunctionality() throws Exception {
 
         aimsImage.setOnMouseClicked(e -> {

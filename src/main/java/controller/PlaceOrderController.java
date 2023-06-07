@@ -21,6 +21,9 @@ import java.util.regex.Pattern;
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
+// Vi phạm SRP: Vừa xử lý, xác thực dữ liệu delivery info vừa làm nhiệm vụ đặt hàng => có nhiều hơn 1 lý do để thay đổi mã nguồn => vi phạm
+// SRP: Validate dữ liệu vừa xử lý dữ liệu đặt hàng => có nhiều hơn 1 lý do để thay đổi
+
 public class PlaceOrderController extends BaseController {
 
     /**
@@ -60,6 +63,7 @@ public class PlaceOrderController extends BaseController {
      * @throws InterruptedException
      * @throws IOException
      */
+    
     public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         LOGGER.info("Process Delivery Info");
         LOGGER.info(info.toString());

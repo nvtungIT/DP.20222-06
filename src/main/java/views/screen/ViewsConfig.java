@@ -10,6 +10,8 @@ import java.util.Locale;
 /**
  * @author
  */
+// Vi phạm SRP: thực hiện nhiều hơn 2 trách nhiệm (>=2 lý do để thay đổi: 1 là config các màn hình, 2 là việc thay đổi đơn vị tiền tệ
+// giải pháp: tách getCurrencyFormat() qua một lớp khác
 public class ViewsConfig {
 
     // static resource

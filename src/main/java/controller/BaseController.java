@@ -10,6 +10,7 @@ import entity.media.Media;
  * This class is the base controller for our AIMS project
  * @author nguyenlm
  */
+/* LSP: các lớp AuthenticationController, HomeController, PaymentController kế thừa từ BaseController không hợp lý khi thực hiện getListCartMedia() và checkMediaCart() */
 public class BaseController {
     
     /**

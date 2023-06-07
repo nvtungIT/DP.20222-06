@@ -22,6 +22,9 @@ public class InterbankPayloadConverter {
      * @param contents
      * @return
      */
+
+    // Vi phạm OCP: Phương thức convertToRequestPayload chỉ dành cho Credit Card, sau này có thêm các hình thức thanh toán khác nữa thì phải thay đổi trực tiếp mã nguồn
+    // Vi phạm DIP: phụ thuộc trực tiếp vào concrete class CreditCard, sau này khi có thêm phương thức thanh toán qua Momo, ZaloPay... thì phải thay đổi
     String convertToRequestPayload(CreditCard card, int amount, String contents) {
         Map<String, Object> transaction = new MyMap();
 
@@ -68,6 +71,7 @@ public class InterbankPayloadConverter {
                 Integer.parseInt((String) transaction.get("amount")),
                 (String) transaction.get("createdAt"));
 
+        // Vi phạm OCP: Sau này mở rộng thêm một kiểu lỗi nữa thì phải thay đổi trực tiếp mã nguồn 
         switch (trans.getErrorCode()) {
             case "00":
                 break;
