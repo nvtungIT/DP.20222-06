@@ -1,6 +1,6 @@
 package views.screen.payment;
 
-import controller.CreditCardController;
+import controller.PaymentController;
 import entity.invoice.Invoice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -76,7 +76,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 
 	void confirmToPayOrder() throws IOException{
 		String contents = "pay order";
-		CreditCardController ctrl = (CreditCardController) getBController();
+		PaymentController ctrl = (PaymentController) getBController();
 		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
 				expirationDate.getText(), securityCode.getText());
 
