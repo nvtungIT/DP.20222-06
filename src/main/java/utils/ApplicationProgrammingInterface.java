@@ -26,47 +26,47 @@ public class ApplicationProgrammingInterface {
 	public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
 
-	public static String get(String url, String token) throws Exception {
-		LOGGER.info("Request URL: " + url + "\n");
-		HttpURLConnection conn = setupConnection(url);
+	// public static String get(String url, String token) throws Exception {
+	// 	LOGGER.info("Request URL: " + url + "\n");
+	// 	HttpURLConnection conn = setupConnection(url);
 
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Authorization", "Bearer " + token);
-		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-		String inputLine;
-		StringBuilder respone = new StringBuilder(); // ising StringBuilder for the sake of memory and performance
-		while ((inputLine = in.readLine()) != null)
-			System.out.println(inputLine);
-		respone.append(inputLine + "\n");
-		in.close();
-		LOGGER.info("Respone Info: " + respone.substring(0, respone.length() - 1).toString());
-		return respone.substring(0, respone.length() - 1).toString();
-	}
+	// 	conn.setRequestMethod("GET");
+	// 	conn.setRequestProperty("Authorization", "Bearer " + token);
+	// 	BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	// 	String inputLine;
+	// 	StringBuilder respone = new StringBuilder(); // ising StringBuilder for the sake of memory and performance
+	// 	while ((inputLine = in.readLine()) != null)
+	// 		System.out.println(inputLine);
+	// 	respone.append(inputLine + "\n");
+	// 	in.close();
+	// 	LOGGER.info("Respone Info: " + respone.substring(0, respone.length() - 1).toString());
+	// 	return respone.substring(0, respone.length() - 1).toString();
+	// }
 
-	public static String post(String url, String data) throws IOException {
-		allowMethods("PATCH");
-		HttpURLConnection conn = setupConnection(url);
-		conn.setRequestMethod("PATCH");
-		String payload = data;
-		LOGGER.info("Request Info:\nRequest URL: " + url + "\n" + "Payload Data: " + payload + "\n");
+	// public static String post(String url, String data) throws IOException {
+	// 	allowMethods("PATCH");
+	// 	HttpURLConnection conn = setupConnection(url);
+	// 	conn.setRequestMethod("PATCH");
+	// 	String payload = data;
+	// 	LOGGER.info("Request Info:\nRequest URL: " + url + "\n" + "Payload Data: " + payload + "\n");
 
-		Writer writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-		writer.write(payload);
-		writer.close();
-		BufferedReader in;
-		String inputLine;
-		if (conn.getResponseCode() / 100 == 2) {
-			in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-		} else {
-			in = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-		}
-		StringBuilder response = new StringBuilder();
-		while ((inputLine = in.readLine()) != null)
-			response.append(inputLine);
-		in.close();
-		LOGGER.info("Respone Info: " + response.toString());
-		return response.toString();
-	}
+	// 	Writer writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+	// 	writer.write(payload);
+	// 	writer.close();
+	// 	BufferedReader in;
+	// 	String inputLine;
+	// 	if (conn.getResponseCode() / 100 == 2) {
+	// 		in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	// 	} else {
+	// 		in = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+	// 	}
+	// 	StringBuilder response = new StringBuilder();
+	// 	while ((inputLine = in.readLine()) != null)
+	// 		response.append(inputLine);
+	// 	in.close();
+	// 	LOGGER.info("Respone Info: " + response.toString());
+	// 	return response.toString();
+	// }
 
 	private static HttpURLConnection setupConnection(String url) throws IOException {
 		HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
@@ -94,5 +94,27 @@ public class ApplicationProgrammingInterface {
 		} catch (NoSuchFieldException | IllegalAccessException e) {
 			throw new IllegalStateException(e);
 		}
+	}
+
+	public abstract void setupMethod(HttpURLConnection conn) {
+
+	}
+
+	public abstract void setupMethod(HttpURLConnection conn, String token) {
+
+	}
+
+	public abstract progress(HttpURLConnection conn, String token, String data) {
+
+	}
+
+	public static String executeMethod(String url, String token, String data) {
+		try {
+			HttpURLConnection conn = setupConnection(url);
+			setupMethod(conn, token);
+			String response = progress(conn, token, data);
+		} catch (Exception e) {
+			throw new Exception(e);
+		}	
 	}
 }
