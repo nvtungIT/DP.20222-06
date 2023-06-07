@@ -38,11 +38,11 @@ public class IntroScreenHandler extends BaseScreenHandler {
         }
     }
 
-    // @override
+    // @Override
     // protected void setupData(Object dto) throws Exception {
     //     return;
     // }
-    @override
+    @Override
     protected void setupFunctionality() throws Exception {
         File file = new File("src/main/resources/assets/images/Logo.png");
         Image image = new Image(file.toURI().toString());

@@ -58,11 +58,11 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 		}
 	}
 
-	// @override
+	@Override
 	protected void setupData(Object dto) throws Exception {
 		this.invoice = (Invoice) dto;
 	}
-	// @override
+	@Override
 	protected void setupFunctionality() throws Exception {
 		btnConfirmPayment.setOnMouseClicked(e -> {
 			try {

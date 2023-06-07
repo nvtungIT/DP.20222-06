@@ -15,7 +15,7 @@ import java.util.List;
 
 
 // Sử dụng Template Method: Với các lớp BookDAO, CDDAO, DVDDAO kế thừa lớp MediaDAO  có các template method 
-// được các lớp kế thừa có các hành vi giống nhau sử dụng, đồng thời cho phéo các lớp con có thể override lại pthuc  getMediaById tùy thuộc
+// được các lớp kế thừa có các hành vi giống nhau sử dụng, đồng thời cho phéo các lớp con có thể Override lại pthuc  getMediaById tùy thuộc
 // vào đặc tính của mỗi lớp con
 public class MediaDAO {
 
