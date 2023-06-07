@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
+
+// ?? Vi phạm SRP: lớp có nhiều trách nhiệm riêng biệt, nên tách DateFormatter, LOGGER ra riêng
 // SRP: > 1 lý do để thay đổi: Xác thực qua cái khác không phải token (session) => thay đổi get
 // Nếu muốn đổi dữ liệu trả về => JSON => phải thay đổi
 // OCP: Nếu có thêm cả put, delete mở rộng trong tương lai => sủa trực tiếp => OCP

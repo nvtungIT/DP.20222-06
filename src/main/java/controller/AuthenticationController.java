@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 
-
+// Vi phạm SRP: vì sau này nếu mở rộng ra thêm các hình thức đăng nhập khác (VD: qua phone)
+// Hoặc sau này muốn thay đổi bảo mật qua hàm băm bảo mật hơn như SHA => lớp Authentication Controller sẽ có 2 lý do để thay đổi =>  vi phạm SRP (có thể tách trách nhiệm MD5 qua lớp )
 /**
  * @author
  */
@@ -36,6 +37,9 @@ public class AuthenticationController extends BaseController {
         } else return SessionInformation.mainUser.cloneInformation();
     }
 
+    // vi phạm OCP: sau này nếu mở rộng hình thức xác thực đăng nhập thông qua cách khác (ví dụ qua phone, vân tay) => phải thay đổi trực tiếp mã nguồn
+    // (giải pháp: nên để UserDAO là abstract, các hình thức đăng nhập là lớp cụ thể, overrider method authenticate của abstract)
+    // Vi phạm DIP: phụ thuộc trực tiếp vào lớp cụ thể UserDAO, sau này nếu mở rộng hình thức xác thực đăng nhập thông qua cách khác (ví dụ qua phone, vân tay) => gặp vấn đề
     public void login(String email, String password) throws Exception {
         try {
             User user = new UserDAO().authenticate(email, md5(password));

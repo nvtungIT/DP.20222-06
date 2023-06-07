@@ -26,6 +26,7 @@ import views.screen.ViewsConfig;
 import views.screen.popup.PopupScreen;
 import views.screen.shipping.ShippingScreenHandler;
 
+//? vi phạm DIP: Các lớp con concrete ...ScreenHandler đều phụ thuộc vào lớp cụ thể PopupScreen. Nên để một thành phần Popup abstract rồi các lớp popup con implements
 public class CartScreenHandler extends BaseScreenHandler {
 	private static Logger LOGGER = Utils.getLogger(CartScreenHandler.class.getName());
 
