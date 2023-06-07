@@ -26,7 +26,7 @@ public interface InterbankInterface {
 	 * @throws UnrecognizedException if responded with an unknown error code or
 	 *                               something goes wrong
 	 */
-	// Vi phạm OCP: Phương thức payOrder chỉ dành cho Credit Card, sau này có thêm các hình thức thanh toán khác nữa thì phải thay đổi trực tiếp mã nguồn
+
 	public abstract PaymentTransaction payOrder(CreditCard card, int amount, String contents)
 			throws PaymentException, UnrecognizedException;
 

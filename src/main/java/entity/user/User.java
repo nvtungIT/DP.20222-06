@@ -20,7 +20,7 @@ public class User {
         return new User(this.id, this.name, this.email, this.address, this.phone);
     }
     
-    // override toString method
+    // Override toString method
     @Override
     public String toString() {
         return "{" +
