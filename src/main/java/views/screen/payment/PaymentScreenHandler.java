@@ -17,6 +17,11 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import entity.payment.Card;
+import entity.payment.CreditCard;
+import controller.payment.CardCreator;
+import controller.payment.CreditCardCreator;
+
 public class PaymentScreenHandler extends BaseScreenHandler {
 
 	private static final Logger LOGGER = Utils.getLogger(PaymentScreenHandler.class.getName());
@@ -77,8 +82,13 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 	void confirmToPayOrder() throws IOException{
 		String contents = "pay order";
 		PaymentController ctrl = (PaymentController) getBController();
-		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
+		
+		// Xử lý để lấy type name của card: Ở đây tạm mặc định type là CreditCard
+		CardCreator creditCardCreator = new CreditCardCreator();
+		Card creditCard = creditCardCreator.createCard(cardNumber.getText(), holderName.getText(),
 				expirationDate.getText(), securityCode.getText());
+
+		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, creditCard);
 
 		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);
 		resultScreen.setPreviousScreen(this);
