@@ -27,6 +27,8 @@ public class Media {
     protected String imageURL;
     protected boolean rushSupported;
 
+    // Có thể có factory method để tạo ra các loại Media khác nhau
+
     public Media() throws SQLException {
         stm = AIMSDB.getConnection().createStatement();
     }
