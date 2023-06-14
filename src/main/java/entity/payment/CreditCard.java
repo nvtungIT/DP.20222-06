@@ -5,11 +5,15 @@ package entity.payment;
  */
 public class CreditCard {
 
-    public CreditCard() {
-        super();
-    }
+    private String cardCode;
+    private String owner;
+    private String dateExpired;
+    protected int cvvCode;
 
     public CreditCard(String cardCode, String owner, String dateExpired, int cvvCode) {
-        super(cardCode, owner, dateExpired, cvvCode);
+        this.cardCode = cardCode;
+        this.owner = owner;
+        this.dateExpired = dateExpired;
+        this.cvvCode = cvvCode;
     }
 }

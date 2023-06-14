@@ -26,7 +26,7 @@ public class PaymentController extends BaseController {
 	/**
 	 * Represent the card used for payment
 	 */
-	// private Card card;
+	private CreditCard card;
 
 	/**
 	 * Represent the Interbank subsystem
@@ -81,11 +81,16 @@ public class PaymentController extends BaseController {
 	 * @return {@link Map Map} represent the payment result with a
 	 *         message.
 	 */
-	// Vi phạm OCP: Phương thức payOrder chỉ dành cho Credit Card, sau này có thêm các hình thức thanh toán khác nữa thì phải thay đổi trực tiếp mã nguồn
-	public Map<String, String> payOrder(int amount, String contents, Card card) {
+	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
+			String expirationDate, String securityCode) {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
 		try {
+			this.card = new CreditCard(
+					cardNumber,
+					cardHolderName,
+					getExpirationDate(expirationDate),
+					Integer.parseInt(securityCode));
 
 			this.interbank = new InterbankSubsystem();
 			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
