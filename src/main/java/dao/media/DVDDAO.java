@@ -45,4 +45,17 @@ public class DVDDAO extends MediaDAO {
             throw new SQLException();
         }
     }
+
+    public static ResultSet getInforById(int id) throws SQLException {
+         String sql = "SELECT * FROM "+
+                "aims.DVD " +
+                "where DVD.id = " + id + ";";
+        Statement stm = AIMSDB.getConnection().createStatement();
+        ResultSet res = stm.executeQuery(sql);
+        if (res != null) {
+            return res;
+        } else {
+            throw new SQLException();
+        }
+    }
 }
