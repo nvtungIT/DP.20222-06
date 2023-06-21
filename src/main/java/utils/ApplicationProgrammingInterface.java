@@ -108,6 +108,7 @@ public class ApplicationProgrammingInterface {
 
 	}
 
+    // template method: dùng chung cho các phương thức GET, POST
 	public static String executeMethod(String url, String token, String data) {
 		try {
 			HttpURLConnection conn = setupConnection(url);
