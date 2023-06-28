@@ -4,6 +4,7 @@ import entity.payment.CreditCard;
 import entity.payment.Card;
 import entity.payment.PaymentTransaction;
 import subsystem.interbank.InterbankSubsystemController;
+import entity.paymentStrategy.PaymentStrategy;
 
 /***
  * The {@code InterbankSubsystem} class is used to communicate with the
@@ -13,6 +14,11 @@ import subsystem.interbank.InterbankSubsystemController;
  *
  */
 public class InterbankSubsystem implements InterbankInterface {
+
+	/**
+	 * Represent the payment strategy
+	 */
+	private PaymentStrategy paymentStrategy;
 
 	/**
 	 * Represent the controller of the subsystem
@@ -25,6 +31,11 @@ public class InterbankSubsystem implements InterbankInterface {
 	 */
 	public InterbankSubsystem() {
 		this.ctrl = new InterbankSubsystemController();
+		this.paymentStrategy = new PaymentStrategy();
+	}
+
+	public void setPaymentStrategy(PaymentStrategy paymentStrategy) {
+		this.paymentStrategy = paymentStrategy;
 	}
 
 	/**
@@ -35,6 +46,12 @@ public class InterbankSubsystem implements InterbankInterface {
 	// Vi phạm DIP: phụ thuộc trực tiếp vào concrete class CreditCard, sau này khi có thêm phương thức thanh toán qua Momo, ZaloPay... thì phải thay đổi
 	public PaymentTransaction payOrder(Card card, int amount, String contents) {
 		PaymentTransaction transaction = ctrl.payOrder(card, amount, contents);
+		return transaction;
+	}
+
+	// strategy
+	public PaymentTransaction pay(int amount, String contents) {
+		PaymentTransaction transaction = paymentStrategy.pay(amount, contents)
 		return transaction;
 	}
 

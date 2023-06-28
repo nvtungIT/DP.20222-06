@@ -19,6 +19,8 @@ import java.util.logging.Logger;
 
 import entity.payment.Card;
 import entity.payment.CreditCard;
+import entity.payment.DomesticCard;
+import entity.paymentStrategy.PaymentStrategy;
 import controller.payment.CardCreator;
 import controller.payment.CreditCardCreator;
 
@@ -89,6 +91,37 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 				expirationDate.getText(), securityCode.getText());
 
 		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, creditCard);
+
+		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);
+		resultScreen.setPreviousScreen(this);
+		resultScreen.setHomeScreenHandler(homeScreenHandler);
+		resultScreen.setScreenTitle("Result Screen");
+		resultScreen.show();
+	}
+
+	void confirmToPayOrderUseStrategy() throws IOException{
+		String contents = "pay order";
+		PaymentController ctrl = (PaymentController) getBController();
+		PaymentStrategy paymentStrategy = new PaymentStrategy();
+		String choosen = ""
+		// Chọn choosen
+		
+		// Xử lý để lấy type name của card: 
+		switch(choosen) {
+			case "CreditCard": {
+				paymentStrategy = new PaymentByCreditCard();
+				card = new CreditCard();
+				paymentStrategy.setCard(card)
+			}
+			case "DomesticCard": {
+				paymentStrategy = new PaymentByCreditCard();
+				card = new DomesticCard();
+				paymentStrategy.setCard(card)
+			}
+		}
+		
+
+		Map<String, String> response = ctrl.pay(invoice.getAmount(), contents, paymentStrategy);
 
 		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);
 		resultScreen.setPreviousScreen(this);

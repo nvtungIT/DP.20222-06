@@ -101,4 +101,34 @@ public class PaymentController extends BaseController {
 	public void emptyCart(){
         SessionInformation.cartInstance.emptyCart();
     }
+
+	// Strategy
+	/**
+	 * Pay order, and then return the result with a message.
+	 * 
+	 * @param amount         - the amount to pay
+	 * @param contents       - the transaction contents
+	 * @param cardNumber     - the card number
+	 * @param cardHolderName - the card holder name
+	 * @param expirationDate - the expiration date in the format "mm/yy"
+	 * @param securityCode   - the cvv/cvc code of the credit card
+	 * @return {@link Map Map} represent the payment result with a
+	 *         message.
+	 */
+	public Map<String, String> pay(int amount, String contents, PaymentStrategy paymentStrategy) {
+		Map<String, String> result = new Hashtable<String, String>();
+		result.put("RESULT", "PAYMENT FAILED!");
+		try {
+
+			this.interbank = new InterbankSubsystem();
+			this.interbank.setPaymentStrategy(paymentStrategy)
+			PaymentTransaction transaction = interbank.pay(amount, contents);
+
+			result.put("RESULT", "PAYMENT SUCCESSFUL!");
+			result.put("MESSAGE", "You have successfully paid the order!");
+		} catch (PaymentException | UnrecognizedException ex) {
+			result.put("MESSAGE", ex.getMessage());
+		}
+		return result;
+	}
 }
