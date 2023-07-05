@@ -50,6 +50,9 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 	@FXML
 	private ComboBox<String> province;
 
+	@FXML
+	private ComboBox<String> shippingType; // là tên các lớp ShippingMethodA, ShippingMethodB
+
 	private Order order;
 
 	public ShippingScreenHandler(Stage stage, String screenPath, Order order) throws IOException {
@@ -107,6 +110,8 @@ public class ShippingScreenHandler extends BaseScreenHandler {
 		messages.put("address", address.getText());
 		messages.put("instructions", instructions.getText());
 		messages.put("province", province.getValue());
+
+		messages.put("shippingType", province.getValue());
 		DeliveryInfo deliveryInfo;
 		try {
 			// process and validate delivery info
