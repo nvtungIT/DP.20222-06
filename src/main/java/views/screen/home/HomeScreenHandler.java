@@ -97,13 +97,13 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         setBController(new HomeController());
         this.authenticationController = new AuthenticationController();
         try{
-            List medium = getBController().getAllMedia();
+            List mediaList = getBController().getAllMedia();
             this.homeItems = new ArrayList<>();
-            for (Object object : medium) {
+            for (Object object : mediaList) {
                 Media media = (Media)object;
-                MediaHandler m = new MediaHandler(ViewsConfig.HOME_MEDIA_PATH, media);
-                m.attach(this);
-                this.homeItems.add(m);
+                MediaHandler mediaHandler = new MediaHandler(ViewsConfig.HOME_MEDIA_PATH, media);
+                mediaHandler.attach(this);
+                this.homeItems.add(mediaHandler);
             }
         } catch (SQLException | IOException e){
             LOGGER.info("Errors occurred: " + e.getMessage());
@@ -151,13 +151,13 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     public void setImage() {
         // fix image path caused by fxml
-        File file1 = new File(ViewsConfig.IMAGE_PATH + "/" + "Logo.png");
-        Image img1 = new Image(file1.toURI().toString());
-        aimsImage.setImage(img1);
+        File logoFile = new File(ViewsConfig.IMAGE_PATH + "/" + "Logo.png");
+        Image logoImage = new Image(logoFile.toURI().toString());
+        aimsImage.setImage(logoImage);
 
-        File file2 = new File(ViewsConfig.IMAGE_PATH + "/" + "cart.png");
-        Image img2 = new Image(file2.toURI().toString());
-        cartImage.setImage(img2);
+        File cartFile = new File(ViewsConfig.IMAGE_PATH + "/" + "cart.png");
+        Image cartImage = new Image(cartFile.toURI().toString());
+        cartImage.setImage(cartImage);
     }
 
     public void addMediaHome(List items){

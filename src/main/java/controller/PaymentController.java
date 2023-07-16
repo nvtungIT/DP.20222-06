@@ -45,8 +45,8 @@ public class PaymentController extends BaseController {
 	 *                              in the expected format
 	 */
 	private String getExpirationDate(String date) throws InvalidCardException {
-		String[] strs = date.split("/");
-		if (strs.length != 2) {
+		String[] dateSplitedStrs  = date.split("/");
+		if (dateSplitedStrs .length != 2) {
 			throw new InvalidCardException();
 		}
 
@@ -55,12 +55,12 @@ public class PaymentController extends BaseController {
 		int year = -1;
 
 		try {
-			month = Integer.parseInt(strs[0]);
-			year = Integer.parseInt(strs[1]);
+			month = Integer.parseInt(dateSplitedStrs [0]);
+			year = Integer.parseInt(dateSplitedStrs [1]);
 			if (month < 1 || month > 12 || year < Calendar.getInstance().get(Calendar.YEAR) % 100 || year > 100) {
 				throw new InvalidCardException();
 			}
-			expirationDate = strs[0] + strs[1];
+			expirationDate = dateSplitedStrs [0] + dateSplitedStrs [1];
 
 		} catch (Exception ex) {
 			throw new InvalidCardException();

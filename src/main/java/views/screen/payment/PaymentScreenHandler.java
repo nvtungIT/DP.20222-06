@@ -79,7 +79,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 
 	void confirmToPayOrder() throws IOException{
 		String contents = "pay order";
-		PaymentController ctrl = (PaymentController) getBController();
+		PaymentController paymentController = (PaymentController) getBController();
 		
 		// Xử lý để lấy type name của card: Ở đây tạm mặc định type là CreditCard
 		if(type == "credit") {
@@ -87,7 +87,7 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 				expirationDate.getText(), securityCode.getText());
 		}
 
-		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, creditCard);
+		Map<String, String> response = paymentController.payOrder(invoice.getAmount(), contents, creditCard);
 
 		BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, ViewsConfig.RESULT_SCREEN_PATH, response);
 		resultScreen.setPreviousScreen(this);
