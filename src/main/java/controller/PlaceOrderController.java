@@ -8,6 +8,7 @@ import entity.order.Order;
 import entity.order.OrderItem;
 import entity.shipping.DeliveryInfo;
 import entity.shipping.ShippingConfigs;
+import entity.shipping.ShippingStrategy;
 import org.example.DistanceCalculator;
 
 import java.io.IOException;
@@ -21,6 +22,9 @@ import java.util.regex.Pattern;
  * This class controls the flow of place order usecase in our AIMS project
  * @author nguyenlm
  */
+// Vi phạm SRP: Vừa xử lý, xác thực dữ liệu delivery info vừa làm nhiệm vụ đặt hàng => có nhiều hơn 1 lý do để thay đổi mã nguồn => vi phạm
+// SRP: Validate dữ liệu vừa xử lý dữ liệu đặt hàng => có nhiều hơn 1 lý do để thay đổi
+
 public class PlaceOrderController extends BaseController {
 
     /**
@@ -60,17 +64,38 @@ public class PlaceOrderController extends BaseController {
      * @throws InterruptedException
      * @throws IOException
      */
+    
     public DeliveryInfo processDeliveryInfo(HashMap info) throws InterruptedException, IOException, InvalidDeliveryInfoException {
         LOGGER.info("Process Delivery Info");
         LOGGER.info(info.toString());
         validateDeliveryInfo(info);
+
+        // get ShippingType to create ShippingStrategy instance
+        String shippingType = info.get("shippingType");
+        Class shippingClass = Class.forName(shippingType);
+        Constructor constructor = shippingClass.getConstructor();
+        ShippingStrategy shippingStrategy = constructor.newInstace();
+
+        // get distanceCalculatorType to create DistanceCalculator method for Adapter pattern
+        String distanceCalculatorType = info.get("distanceCalculatorType");
+        DistanceCaculator distanceCalculator;
+        if (distanceCalculatorType == "DistanceCalculator") {
+            distanceCalculator = new DistanceCaculator();
+        } else {
+            distanceCalculator = new AltDistanceCalculatorAdapter(new AlternativeDistanceCalculator());
+        }
+
         DeliveryInfo deliveryInfo = new DeliveryInfo(
                 String.valueOf(info.get("name")),
                 String.valueOf(info.get("phone")),
                 String.valueOf(info.get("province")),
                 String.valueOf(info.get("address")),
                 String.valueOf(info.get("instructions")),
-                new DistanceCalculator());
+                distanceCalculator);
+        
+        //set shipping strategy
+        deliveryInfo.setShippingStrategy(shippingStrategy)
+
         System.out.println(deliveryInfo.getProvince());
         return deliveryInfo;
     }

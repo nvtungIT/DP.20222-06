@@ -13,6 +13,9 @@ import java.util.logging.Logger;
 /**
  * @author nguyenlm Contains helper functions
  */
+
+// ?? Vi phạm SRP: lớp có nhiều trách nhiệm riêng biệt, nên tách DateFormatter, LOGGER ra riêng
+
 public class Utils {
 
 	public static DateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

@@ -53,7 +53,10 @@ public class Order {
 
     public void setDeliveryInfo(DeliveryInfo deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
-        this.shippingFees = deliveryInfo.calculateShippingFee(this);
+        // this.shippingFees = deliveryInfo.calculateShippingFee(this);
+        
+        // áp dụng theo strategy
+        this.shippingFees = deliveryInfo.calculateShippingFeeByStrategy(this);
     }
 
     public List getOrderMediaList() {

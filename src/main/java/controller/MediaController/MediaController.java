@@ -4,6 +4,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 import dao.media.MediaDAO;
+import dao.media.Creators.BookCreator;
+import dao.media.Creators.MediaCreator;
+import dao.media.Creators.CDCreator;
+import dao.media.Creators.DVDCreator;
 
 /**
  * This class controls the flow of events in homescreen
@@ -21,7 +25,12 @@ public class HomeController extends BaseController {
         return new MediaDAO().getAllMedia();
     }
 
-
+    // Lấy Media từ id cho trước, nhưng lấy đầy đủ thông tin nếu nó là các lớp con của media
+    /**
+     * this method get Media in DB and return back to home to display
+     * @return Media
+     * @throws SQLException
+     */
     public static Media getMediaById(int id) throws SQLException {
         Media mediaP = MediaDAO.getMediaById(id);
         try {
@@ -51,6 +60,6 @@ public class HomeController extends BaseController {
         } catch (SQLException) {
             throw new SQLException();
         }
-
+        
     }
 }

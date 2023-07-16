@@ -71,6 +71,7 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 		}
 	}
 
+	@Override
 	protected void setupData(Object dto) throws Exception {
 		this.invoice = (Invoice) dto;
 		Order order = invoice.getOrder();
@@ -97,10 +98,10 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 			}
 		});
 	}
-
-	protected void setupFunctionality() throws Exception {
-		return;
-	}
+	// @Override
+	// protected void setupFunctionality() throws Exception {
+	// 	return;
+	// }
 
 	@FXML
 	void confirmInvoice(MouseEvent event) throws IOException {

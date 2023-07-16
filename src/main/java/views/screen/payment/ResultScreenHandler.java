@@ -37,16 +37,17 @@ public class ResultScreenHandler extends BaseScreenHandler {
 		}
 	}
 
-
+	@Override
 	protected void setupData(Object dto) throws Exception {
 		Map<String, String> response = (Map<String, String>) dto;
 		resultLabel.setText(response.get("RESULT"));
 		messageLabel.setText(response.get("MESSAGE"));
 	}
 
-	protected void setupFunctionality() throws Exception {
-		return;
-	}
+	// @Override
+	// protected void setupFunctionality() throws Exception {
+	// 	return;
+	// }
 
 	@FXML
 	private Label pageTitle;
