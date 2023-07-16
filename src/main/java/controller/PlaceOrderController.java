@@ -94,7 +94,7 @@ public class PlaceOrderController extends BaseController {
                 distanceCalculator);
         
         //set shipping strategy
-        delivery.setShippingStrategy(shippingStrategy)
+        deliveryInfo.setShippingStrategy(shippingStrategy)
 
         System.out.println(deliveryInfo.getProvince());
         return deliveryInfo;

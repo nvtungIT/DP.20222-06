@@ -25,12 +25,6 @@ public class DVDCreator extends MediaCreator {
             String category = m.getCategory();
             int quantity = m.getQuantity();
 
-            // from CD table
-            String artist = res.getString("artist");
-            String recordLabel = res.getString("recordLabel");
-            String musicType = res.getString("musicType");
-            Date releasedDate = res.getDate("releasedDate");
-
             // from DVD table
             String discType = res.getString("discType");
             String director = res.getString("director");
