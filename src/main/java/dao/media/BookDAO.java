@@ -60,4 +60,17 @@ public class BookDAO extends MediaDAO {
             throw new SQLException();
         }
     }
+
+    public static ResultSet getBookInforById(int id) throws SQLException {
+         String sql = "SELECT * FROM "+
+                "aims.Book " +
+                "where Book.id = " + id + ";";
+        Statement stm = AIMSDB.getConnection().createStatement();
+        ResultSet res = stm.executeQuery(sql);
+        if (res != null) {
+            return res;
+        } else {
+            throw new SQLException();
+        }
+    }
 }
