@@ -19,8 +19,6 @@ import java.util.logging.Logger;
 
 import entity.payment.Card;
 import entity.payment.CreditCard;
-import controller.payment.CardCreator;
-import controller.payment.CreditCardCreator;
 
 public class PaymentScreenHandler extends BaseScreenHandler {
 
@@ -84,9 +82,10 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 		PaymentController ctrl = (PaymentController) getBController();
 		
 		// Xử lý để lấy type name của card: Ở đây tạm mặc định type là CreditCard
-		CardCreator creditCardCreator = new CreditCardCreator();
-		Card creditCard = creditCardCreator.createCard(cardNumber.getText(), holderName.getText(),
+		if(type == "credit") {
+		Card creditCard = new CreditCard(cardNumber.getText(), holderName.getText(),
 				expirationDate.getText(), securityCode.getText());
+		}
 
 		Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, creditCard);
 
