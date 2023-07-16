@@ -27,17 +27,17 @@ public class MyMap extends LinkedHashMap<String, Object> {
 		if (max == -1)
 			return "{}";
 
-		StringBuilder sb = new StringBuilder();
-		Iterator<Map.Entry<String, Object>> it = entrySet().iterator();
+		StringBuilder stringBuilder = new StringBuilder();
+		Iterator<Map.Entry<String, Object>> iterator = entrySet().iterator();
 
-		sb.append('{');
+		stringBuilder.append('{');
 		for (int i = 0;; i++) {
-			Map.Entry<String, Object> e = it.next();
-			String key = e.getKey();
-			Object value = e.getValue();
-			sb.append('"' + key.toString() + '"');
-			sb.append(':');
-			sb.append(value instanceof MyMap ? ((MyMap) value).toJSON() : ('"' + value.toString() + '"'));
+			Map.Entry<String, Object> entry = iterator.next();
+			String key = entry.getKey();
+			Object value = entry.getValue();
+			stringBuilder.append('"' + key.toString() + '"');
+			stringBuilder.append(':');
+			stringBuilder.append(value instanceof MyMap ? ((MyMap) value).toJSON() : ('"' + value.toString() + '"'));
 
 //			if (value instanceof MyMap) {
 //				sb.append(((MyMap) value).toJSON());
@@ -45,8 +45,8 @@ public class MyMap extends LinkedHashMap<String, Object> {
 //				sb.append('"' + value.toString() + '"');
 //			}
 			if (i == max)
-				return sb.append('}').toString();
-			sb.append(",");
+				return stringBuilder.append('}').toString();
+			stringBuilder.append(",");
 		}
 	}
 
@@ -107,18 +107,18 @@ public class MyMap extends LinkedHashMap<String, Object> {
 		}
 
 		int i = idx + 1;
-		StringBuilder sb = new StringBuilder();
+		StringBuilder stringBuilder = new StringBuilder();
 		do {
-			sb.append(str.charAt(i));
+			stringBuilder.append(str.charAt(i));
 			i++;
 			if (i == str.length()) {
 				throw new IllegalArgumentException("Cannot resolve the input.");
 			}
 		} while (str.charAt(i) != '"');
 
-		String result = sb.toString();
+		String result = stringBuilder.toString();
 		offset = result.length() + 2; // update iterator with the term and the 2 double quotes
-		return sb.toString();
+		return stringBuilder.toString();
 	}
 	/**
 	 * Return a {@link MyMap MyMap} that represents the interested substring in a {@link String String}.
@@ -138,9 +138,9 @@ public class MyMap extends LinkedHashMap<String, Object> {
 		}
 
 		MyMap root = new MyMap();
-		StringBuilder sb = new StringBuilder();
+		StringBuilder stringBuilder = new StringBuilder();
 		int i = idx;
-		sb.append(str.charAt(i));
+		stringBuilder.append(str.charAt(i));
 
 		i++;
 		try {
@@ -160,13 +160,13 @@ public class MyMap extends LinkedHashMap<String, Object> {
 					throw new IllegalArgumentException("Cannot resolve the input.");
 				}
 
-				sb.append(str.subSequence(i, i + offset));
+				stringBuilder.append(str.subSequence(i, i + offset));
 
 				i += offset;
 				offset = 0;
 
 				// check colon
-				sb.append(str.charAt(i));
+				stringBuilder.append(str.charAt(i));
 				if (str.charAt(i) != ':') {
 					throw new IllegalArgumentException("Cannot resolve the input.");
 				}
@@ -175,7 +175,7 @@ public class MyMap extends LinkedHashMap<String, Object> {
 				Object value;
 				if (str.charAt(i) == '{') {
 					value = toMyMap(str, i);
-					sb.append(str.subSequence(i, i + offset));
+					stringBuilder.append(str.subSequence(i, i + offset));
 					i += offset;
 					offset = 0;
 				} else if (str.charAt(i) == '"') {
@@ -187,7 +187,7 @@ public class MyMap extends LinkedHashMap<String, Object> {
 					if (value == null) {
 						throw new IllegalArgumentException("Cannot resolve the input.");
 					}
-					sb.append(str.subSequence(i, i + offset));
+					stringBuilder.append(str.subSequence(i, i + offset));
 					i += offset;
 					offset = 0;
 				} else {
@@ -196,16 +196,16 @@ public class MyMap extends LinkedHashMap<String, Object> {
 				//
 				root.put(key, value);
 				if (str.charAt(i) == ',') {
-					sb.append(str.charAt(i));
+					stringBuilder.append(str.charAt(i));
 					i++;
 				} else if (str.charAt(i) == '}') {
-					sb.append(str.charAt(i));
+					stringBuilder.append(str.charAt(i));
 					break;
 				} else {
 					throw new IllegalArgumentException("Cannot resolve the input.");
 				}
 			}
-			offset = sb.toString().length();
+			offset = stringBuilder.toString().length();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new IllegalArgumentException("Cannot resolve the input.");

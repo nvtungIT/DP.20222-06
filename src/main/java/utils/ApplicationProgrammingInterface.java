@@ -28,52 +28,52 @@ public class ApplicationProgrammingInterface {
 
 	public static String get(String url, String token) throws Exception {
 		LOGGER.info("Request URL: " + url + "\n");
-		HttpURLConnection conn = setupConnection(url);
+		HttpURLConnection connection = setupConnection(url);
 
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Authorization", "Bearer " + token);
-		BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		connection.setRequestMethod("GET");
+		connection.setRequestProperty("Authorization", "Bearer " + token);
+		BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 		String inputLine;
-		StringBuilder respone = new StringBuilder(); // ising StringBuilder for the sake of memory and performance
-		while ((inputLine = in.readLine()) != null)
+		StringBuilder response = new StringBuilder(); // ising StringBuilder for the sake of memory and performance
+		while ((inputLine = input.readLine()) != null)
 			System.out.println(inputLine);
-		respone.append(inputLine + "\n");
+		response.append(inputLine + "\n");
 		in.close();
-		LOGGER.info("Respone Info: " + respone.substring(0, respone.length() - 1).toString());
-		return respone.substring(0, respone.length() - 1).toString();
+		LOGGER.info("Response Info: " + response.substring(0, response.length() - 1).toString());
+		return response.substring(0, response.length() - 1).toString();
 	}
 
 	public static String post(String url, String data) throws IOException {
 		allowMethods("PATCH");
-		HttpURLConnection conn = setupConnection(url);
-		conn.setRequestMethod("PATCH");
+		HttpURLConnection connection = setupConnection(url);
+		connection.setRequestMethod("PATCH");
 		String payload = data;
 		LOGGER.info("Request Info:\nRequest URL: " + url + "\n" + "Payload Data: " + payload + "\n");
 
-		Writer writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
+		Writer writer = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream()));
 		writer.write(payload);
 		writer.close();
-		BufferedReader in;
+		BufferedReader input;
 		String inputLine;
 		if (conn.getResponseCode() / 100 == 2) {
-			in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			input = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		} else {
-			in = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+			input = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
 		}
 		StringBuilder response = new StringBuilder();
-		while ((inputLine = in.readLine()) != null)
+		while ((inputLine = input.readLine()) != null)
 			response.append(inputLine);
-		in.close();
+		input.close();
 		LOGGER.info("Respone Info: " + response.toString());
 		return response.toString();
 	}
 
 	private static HttpURLConnection setupConnection(String url) throws IOException {
-		HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
-		conn.setDoInput(true);
-		conn.setDoOutput(true);
-		conn.setRequestProperty("Content-Type", "application/json");
-		return conn;
+		HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+		connection.setDoInput(true);
+		connection.setDoOutput(true);
+		connection.setRequestProperty("Content-Type", "application/json");
+		return connection;
 	}
 
 	private static void allowMethods(String... methods) {
