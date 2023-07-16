@@ -19,8 +19,6 @@ public class ShippingMethodA extends ShippingStrategy {
             // giả sử tạm thời mỗi item kích thước là 20 x 30 x 40
             v += Order.orderMediaList[i].getQuantity() * 20 * 30 * 40 / 6000;
         }
-
-0
         return (int) (distance * 1.2 + kilos * 10 + v * 10);
     }
 }

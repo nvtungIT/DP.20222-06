@@ -76,13 +76,22 @@ public class PlaceOrderController extends BaseController {
         Constructor constructor = shippingClass.getConstructor();
         ShippingStrategy shippingStrategy = constructor.newInstace();
 
+        // get distanceCalculatorType to create DistanceCalculator method for Adapter pattern
+        String distanceCalculatorType = info.get("distanceCalculatorType");
+        DistanceCaculator distanceCalculator;
+        if (distanceCalculatorType == "DistanceCalculator") {
+            distanceCalculator = new DistanceCaculator();
+        } else {
+            distanceCalculator = new AltDistanceCalculatorAdapter(new AlternativeDistanceCalculator());
+        }
+
         DeliveryInfo deliveryInfo = new DeliveryInfo(
                 String.valueOf(info.get("name")),
                 String.valueOf(info.get("phone")),
                 String.valueOf(info.get("province")),
                 String.valueOf(info.get("address")),
                 String.valueOf(info.get("instructions")),
-                new DistanceCalculator());
+                distanceCalculator);
         
         //set shipping strategy
         delivery.setShippingStrategy(shippingStrategy)
