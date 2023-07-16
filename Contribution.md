@@ -1,6 +1,6 @@
-### Bài 2: Coupling
-- Subteam 1: Nguyễn Văn A, Nguyễn Thị B
-- Subteam 2: Nguyễn Văn C, Nguyễn Thị D
+### Chia nhóm
+- Subteam 1: Chu Mạnh Tiến, Nguyễn Văn Biển
+- Subteam 2: Nguyễn Việt Tùng, Trần Xuân Đồng
 
 
 
