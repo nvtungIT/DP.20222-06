@@ -60,6 +60,7 @@ public class ApplicationProgrammingInterface {
 		while ((inputLine = in.readLine()) != null)
 			response.append(inputLine);
 		in.close();
+		//clean name : Sửa thông tin log từ “respone” thành “response”
 		LOGGER.info("Respone Info: " + response.toString());
 		return response.toString();
 	}

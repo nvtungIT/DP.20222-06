@@ -69,7 +69,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
 
     private List homeItems;
     private AuthenticationController authenticationController;
-
+  
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
         try {
@@ -147,7 +147,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
         numMediaInCart.setText(String.valueOf(SessionInformation.cartInstance.getListMedia().size()) + " media");
         super.show();
     }
-
+//clean name : chưa rõ sự khác biệt giữa file1,file2,image1,image2
     public void setImage() {
         // fix image path caused by fxml
         File file1 = new File(ViewsConfig.IMAGE_PATH + "/" + "Logo.png");
@@ -209,6 +209,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     }
 
     @Override
+    
     public void update(Observable observable) {
         if (observable instanceof MediaHandler) update((MediaHandler) observable);
     }
