@@ -5,6 +5,6 @@ import org.example.DistanceCalculator;
 
 public class ShippingStrategy {
     protected int getShippingFee(DistanceCalculator distanceCalculator, Order order, String address, String province) {
-
+        return 0;
     }
 }
