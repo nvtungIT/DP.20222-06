@@ -15,8 +15,8 @@
 |------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | Nguyễn Văn Biển  | 20193993 | Yêu cầu thêm số 2, 5 (Thêm mặt hàng Media mới, Thêm phương thức thanh toán mới: Thẻ nội địa (Domestic Card)); Giải quyết vấn đề vi phạm nguyên lý Single Responsibility Principle trong class AuthenticationController); làm báo cáo, slide                                                                     |
 | Trần Xuân Đồng   | 20194020 | Yêu cầu thêm số 3 (Vấn đề Thay đổi yêu cầu khi load giao diện); Clean code (clean name, clean function - method, clear class); làm báo cáo, slide                                                                                                                                                                   |
-| Chu Mạnh Tiến    | 20194182 |                         |
-| Nguyễn Việt Tùng | 20194020 |                         |
+| Chu Mạnh Tiến    | 20194182 | Yêu cầu thêm số 4, 6 (Thay đổi cách tính khoảng cách, sử dụng thư viện mới; thay đổi cách tính phí vận chuyển mới); Singleton pattern; Clean code – clean name; làm báo cáo, slide                                                                                                                                   |
+| Nguyễn Việt Tùng | 20194020 | Yêu cầu thêm số 2 (Vấn đề Thêm màn hình: Xem chi tiết sản phẩm và giải pháp); Biểu đồ usecase tổng quan; làm báo cáo, slide                        |
 
 
 
