@@ -10,6 +10,15 @@
 * ###### Chu Mạnh Tiến 20194182
 * ###### Nguyễn Văn Biển 20193993
 
+## Phân công công việc
+| Họ tên           | MSSV     | Công việc                                                                                                                               |
+|------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| Nguyễn Văn Biển  | 20193993 | Yêu cầu thêm số 2, 5 (Thêm mặt hàng Media mới, Thêm phương thức thanh toán mới: Thẻ nội địa (Domestic Card)); Giải quyết vấn đề vi phạm | 
+|                  |          | nguyên lý Single Responsibility Principle trong class AuthenticationController); làm báo cáo, slide                                     |
+| Trần Xuân Đồng   | 20194020 |                         |
+| Chu Mạnh Tiến    | 20194182 |                         |
+| Nguyễn Việt Tùng | 20194020 |                         |
+
 
 
 
