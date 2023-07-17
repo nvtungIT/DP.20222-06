@@ -14,7 +14,7 @@
 | Họ tên           | MSSV     | Công việc                                                                                                                               |
 |------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | Nguyễn Văn Biển  | 20193993 | Yêu cầu thêm số 2, 5 (Thêm mặt hàng Media mới, Thêm phương thức thanh toán mới: Thẻ nội địa (Domestic Card)); Giải quyết vấn đề vi phạm nguyên lý Single Responsibility Principle trong class AuthenticationController); làm báo cáo, slide                                                                     |
-| Trần Xuân Đồng   | 20194020 |                         |
+| Trần Xuân Đồng   | 20194020 | Yêu cầu thêm số 3 (Vấn đề Thay đổi yêu cầu khi load giao diện); Clean code (clean name, clean function - method, clear class); làm báo cáo, slide                                                                                                                                                                   |
 | Chu Mạnh Tiến    | 20194182 |                         |
 | Nguyễn Việt Tùng | 20194020 |                         |
 
