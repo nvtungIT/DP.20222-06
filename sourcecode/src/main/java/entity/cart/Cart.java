@@ -69,7 +69,7 @@ public class Cart {
         return null;
     }
 
-    private static Cart getInstance() {
+    public static Cart getInstance() {
         return this.cart;
     }
 
