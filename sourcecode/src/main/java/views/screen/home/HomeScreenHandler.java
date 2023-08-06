@@ -70,24 +70,14 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     private AuthenticationController authenticationController;
 
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
-        super(stage, screenPath);
-        try {
-            if(dto=null){
-            setupData(null);
-            } else{
-            setupData(null);
+        super(stage, screenPath);}
+      
+    
+        @Override
+        protected void toastLogError() {
+            // Implement toastLogError for HomeScreenHandler
+            // You can display error messages in red color here
         }
-        setupFunctionality();
-        ToastLogError();
-    }
-         catch (IOException ex) {
-            LOGGER.info(ex.getMessage());
-            PopupScreen.error("Error when loading resources.");
-        } catch (Exception ex) {
-            LOGGER.info(ex.getMessage());
-            PopupScreen.error(ex.getMessage());
-        }
-    }
 
     public Label getNumMediaCartLabel(){
         return this.numMediaInCart;
