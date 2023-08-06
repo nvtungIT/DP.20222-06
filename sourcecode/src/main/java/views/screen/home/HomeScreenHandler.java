@@ -1,5 +1,4 @@
 package views.screen.home;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -73,9 +72,15 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
         try {
+            if(dto=null){
             setupData(null);
-            setupFunctionality();
-        } catch (IOException ex) {
+            } else{
+            setupData(null);
+        }
+        setupFunctionality();
+        ToastLogError();
+    }
+         catch (IOException ex) {
             LOGGER.info(ex.getMessage());
             PopupScreen.error("Error when loading resources.");
         } catch (Exception ex) {
