@@ -1,5 +1,4 @@
 package views.screen.home;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -71,18 +70,14 @@ public class HomeScreenHandler extends BaseScreenHandler implements Observer {
     private AuthenticationController authenticationController;
 
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
-        super(stage, screenPath);
-        try {
-            setupData(null);
-            setupFunctionality();
-        } catch (IOException ex) {
-            LOGGER.info(ex.getMessage());
-            PopupScreen.error("Error when loading resources.");
-        } catch (Exception ex) {
-            LOGGER.info(ex.getMessage());
-            PopupScreen.error(ex.getMessage());
+        super(stage, screenPath);}
+      
+    
+        @Override
+        protected void toastLogError() {
+            // Implement toastLogError for HomeScreenHandler
+            // You can display error messages in red color here
         }
-    }
 
     public Label getNumMediaCartLabel(){
         return this.numMediaInCart;
